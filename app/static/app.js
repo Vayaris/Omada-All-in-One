@@ -192,9 +192,10 @@ function renderAppCard(key, info) {
             const linkText = vd.remote ? `v${vd.remote}` : t("update.available");
             const href     = vd.remote_url ? `href="${vd.remote_url}" target="_blank"` : "";
             updateHtml = `<span class="update-info update-available">↑ <a ${href} style="color:inherit">${linkText} ${t("update.available")}</a></span>`;
-        } else {
+        } else if (vd.remote !== null) {
             updateHtml = `<span class="update-info update-current">✓ ${t("update.current")}</span>`;
         }
+        // vd.remote === null → no release info available (e.g. private repo) → show nothing
     }
 
     // Couleur accent selon l'app
