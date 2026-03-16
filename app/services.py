@@ -114,7 +114,9 @@ def fetch_github_latest(repo: str) -> dict:
             }
     except urllib.error.HTTPError as e:
         if e.code == 404:
-            return _fallback_raw_version(repo)
+            fallback = _fallback_raw_version(repo)
+            # Pas de releases publiées — ce n'est pas une erreur
+            return fallback if fallback is not None else {"tag": None, "url": f"https://github.com/{repo}", "body": ""}
         return None
     except Exception:
         return None
