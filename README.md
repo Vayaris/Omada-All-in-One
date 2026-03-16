@@ -25,8 +25,8 @@
 | Component | Description | Port |
 |-----------|-------------|------|
 | **Omada Manager** | Web panel to install, manage and update the Omada SDN Controller service | 30560 (HTTPS) |
-| **Omada API Hub** | Multi-user portal to manage Omada controllers via OpenAPI | 443 (HTTPS) |
-| **All-In-One Hub** | This dashboard | 8080 (HTTP) |
+| **Omada API Hub** | Multi-user portal to manage Omada controllers via OpenAPI | 5000 (HTTPS) |
+| **All-In-One Hub** | This dashboard | your choice (HTTP, default 8080) |
 
 Each component is a fully independent project — they can be updated separately, and the All-In-One Hub is just an orchestration layer on top.
 
@@ -67,13 +67,14 @@ curl -fsSL https://raw.githubusercontent.com/Vayaris/Omada-All-in-One/main/insta
 That's it. The script will:
 
 1. Ask for a language (`fr` / `en`)
-2. Install Python 3, venv, git if missing
-3. Clone the Hub into `/opt/omada-hub/`
-4. Create a Python venv and install dependencies
-5. Set up and start the `omada-hub` systemd service on port **8080**
-6. Optionally install **Omada Manager** (uses its own installer)
-7. Optionally install **Omada API Hub** (git clone + systemd service)
-8. Display the access URL
+2. Ask which port to use for the Hub (default: **8080**) — reserved ports are blocked
+3. Install Python 3, venv, git if missing
+4. Clone the Hub into `/opt/omada-hub/`
+5. Create a Python venv and install dependencies
+6. Set up and start the `omada-hub` systemd service on the chosen port
+7. Optionally install **Omada Manager** (uses its own installer)
+8. Optionally install **Omada API Hub** (git clone + systemd service)
+9. Display the access URL
 
 ### Manual install
 
@@ -92,10 +93,10 @@ The script is **idempotent** — you can run it again to update the Hub itself o
 Open your browser and go to:
 
 ```
-http://<SERVER_IP>:8080
+http://<SERVER_IP>:<PORT>
 ```
 
-No login is required for the Hub — it is designed for use on a local/private network.
+The installer displays the exact URL at the end of the installation. No login is required for the Hub — it is designed for use on a local/private network.
 
 ---
 
@@ -169,9 +170,9 @@ journalctl -u omada-hub -n 50    # View last 50 lines
 
 | Port | Used by |
 |------|---------|
-| 8080 | All-In-One Hub (HTTP) |
+| 8080 (default, configurable) | All-In-One Hub (HTTP) |
 | 30560 | Omada Manager (HTTPS) |
-| 443 | Omada API Hub (HTTPS) |
+| 5000 | Omada API Hub (HTTPS) |
 
 ---
 
@@ -225,8 +226,8 @@ sudo rm -rf /opt/omada-hub
 | Composant | Description | Port |
 |-----------|-------------|------|
 | **Omada Manager** | Panneau web pour installer, gérer et mettre à jour le service Omada SDN Controller | 30560 (HTTPS) |
-| **Omada API Hub** | Portail multi-utilisateurs pour gérer les contrôleurs Omada via OpenAPI | 443 (HTTPS) |
-| **Hub All-In-One** | Ce tableau de bord | 8080 (HTTP) |
+| **Omada API Hub** | Portail multi-utilisateurs pour gérer les contrôleurs Omada via OpenAPI | 5000 (HTTPS) |
+| **Hub All-In-One** | Ce tableau de bord | au choix (HTTP, défaut 8080) |
 
 Chaque composant est un projet entièrement indépendant — ils peuvent être mis à jour séparément, et le Hub All-In-One est simplement une couche d'orchestration au-dessus.
 
@@ -267,13 +268,14 @@ curl -fsSL https://raw.githubusercontent.com/Vayaris/Omada-All-in-One/main/insta
 C'est tout. Le script va :
 
 1. Demander la langue (`fr` / `en`)
-2. Installer Python 3, venv, git si absents
-3. Cloner le Hub dans `/opt/omada-hub/`
-4. Créer un environnement Python virtuel et installer les dépendances
-5. Configurer et démarrer le service systemd `omada-hub` sur le port **8080**
-6. Proposer d'installer **Omada Manager** (utilise son propre installateur)
-7. Proposer d'installer **Omada API Hub** (git clone + service systemd)
-8. Afficher l'URL d'accès
+2. Demander le port du Hub (défaut : **8080**) — les ports réservés sont bloqués
+3. Installer Python 3, venv, git si absents
+4. Cloner le Hub dans `/opt/omada-hub/`
+5. Créer un environnement Python virtuel et installer les dépendances
+6. Configurer et démarrer le service systemd `omada-hub` sur le port choisi
+7. Proposer d'installer **Omada Manager** (utilise son propre installateur)
+8. Proposer d'installer **Omada API Hub** (git clone + service systemd)
+9. Afficher l'URL d'accès
 
 ### Installation manuelle
 
@@ -292,10 +294,10 @@ Le script est **idempotent** — vous pouvez le relancer pour mettre à jour le 
 Ouvrez votre navigateur et allez sur :
 
 ```
-http://<IP_DU_SERVEUR>:8080
+http://<IP_DU_SERVEUR>:<PORT>
 ```
 
-Aucune connexion n'est requise pour le Hub — il est conçu pour être utilisé sur un réseau local/privé.
+L'installateur affiche l'URL exacte à la fin de l'installation. Aucune connexion n'est requise pour le Hub — il est conçu pour être utilisé sur un réseau local/privé.
 
 ---
 
@@ -369,9 +371,9 @@ journalctl -u omada-hub -n 50      # Voir les 50 dernières lignes
 
 | Port | Utilisé par |
 |------|-------------|
-| 8080 | Hub All-In-One (HTTP) |
+| 8080 (défaut, configurable) | Hub All-In-One (HTTP) |
 | 30560 | Omada Manager (HTTPS) |
-| 443 | Omada API Hub (HTTPS) |
+| 5000 | Omada API Hub (HTTPS) |
 
 ---
 

@@ -61,7 +61,7 @@ def api_status():
             "version":   hub_ver,
             "service":   hub_svc,
             "port":      config.API_HUB_PORT,
-            "proto":     "https",
+            "proto":     "https",   # HTTPS natif depuis v1.0.3 (cert auto-signé)
         },
         "hub": {
             "version": self_ver,
