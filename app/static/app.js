@@ -223,7 +223,7 @@ function renderAppCard(key, info) {
         } else if (vd.remote !== null) {
             updateHtml = `<span class="update-info update-current">✓ ${t("update.current")}</span>`;
         }
-        // vd.remote === null → no release info available (e.g. private repo) → show nothing
+        // vd.remote === null → aucune info de release disponible → on n'affiche rien
     }
 
     const updateAvailable = versionData && versionData[key] && versionData[key].update_available;

@@ -40,6 +40,8 @@ Each component is a fully independent project — they can be updated separately
 | **Service monitoring** | Real-time status (active / inactive / failed) with 15-second auto-refresh |
 | **One-click open** | Opens each app in a new browser tab at its correct URL |
 | **Service control** | Restart any sub-app service directly from the hub |
+| **Install from UI** | Missing components can be installed directly from the dashboard with a live console log |
+| **Uninstall from UI** | Fully uninstall any sub-app (stops service, removes files) with one click |
 | **Independent updates** | Each component updates separately via its own GitHub mechanism |
 | **Version checking** | Compares local version against GitHub releases for all 3 components |
 | **Self-update** | The Hub can update itself and restart automatically |
@@ -202,8 +204,9 @@ sudo rm -rf /opt/omada-hub
 | Problem | Solution |
 |---------|----------|
 | Hub not accessible | `journalctl -u omada-hub -n 30` to check logs |
-| Sub-app shows "Not installed" | Run `install.sh` again and choose to install the missing component |
-| "Update" button does nothing | Check that `git` is installed: `which git` |
+| Sub-app shows "Not installed" | Click the **Install** button on the card, or re-run `install.sh` |
+| Install console shows an error | Check the logs in the console output, then retry |
+| "Update" button does not appear | No update available — click **Check for updates** to refresh |
 | Version check fails | GitHub API may be rate-limited (60 req/hour unauthenticated) — wait a few minutes |
 | Hub stuck after self-update | `sudo systemctl restart omada-hub` manually |
 
@@ -241,6 +244,8 @@ Chaque composant est un projet entièrement indépendant — ils peuvent être m
 | **Surveillance des services** | Statut en temps réel (actif / inactif / erreur) avec rafraîchissement automatique toutes les 15 secondes |
 | **Ouverture en un clic** | Ouvre chaque application dans un nouvel onglet à son URL correcte |
 | **Contrôle des services** | Redémarrer n'importe quel service depuis le hub |
+| **Installation depuis l'UI** | Les composants manquants peuvent être installés directement depuis le tableau de bord avec une console de logs en direct |
+| **Désinstallation depuis l'UI** | Désinstalle complètement un composant (arrêt service, suppression fichiers) en un clic |
 | **Mises à jour indépendantes** | Chaque composant se met à jour séparément via son propre mécanisme GitHub |
 | **Vérification de version** | Compare la version locale avec les releases GitHub pour les 3 composants |
 | **Auto-mise à jour** | Le Hub peut se mettre à jour et redémarrer automatiquement |
@@ -403,8 +408,9 @@ sudo rm -rf /opt/omada-hub
 | Problème | Solution |
 |----------|----------|
 | Hub inaccessible | `journalctl -u omada-hub -n 30` pour voir les logs |
-| L'application affiche "Non installé" | Relancer `install.sh` et choisir d'installer le composant manquant |
-| Le bouton "Mettre à jour" ne fait rien | Vérifier que `git` est installé : `which git` |
+| L'application affiche "Non installé" | Cliquer sur le bouton **Installer** sur la carte, ou relancer `install.sh` |
+| La console d'installation affiche une erreur | Lire les logs dans la console, puis réessayer |
+| Le bouton "Mettre à jour" n'apparaît pas | Aucune mise à jour disponible — cliquer sur **Vérifier les MAJ** pour rafraîchir |
 | La vérification de version échoue | L'API GitHub est peut-être limitée en débit (60 req/heure sans auth) — patienter quelques minutes |
 | Le Hub reste bloqué après auto-mise à jour | `sudo systemctl restart omada-hub` manuellement |
 
