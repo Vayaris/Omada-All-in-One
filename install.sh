@@ -284,7 +284,11 @@ fi
 echo ""
 
 # --- Omada API Hub ---
-if [ -f "${API_HUB_DIR}/VERSION" ]; then
+# Considéré installé uniquement si le fichier VERSION ET le service systemd existent
+APIHUB_SVC_EXISTS=false
+systemctl list-unit-files omada-api-hub.service --no-legend 2>/dev/null | grep -q "omada-api-hub" && APIHUB_SVC_EXISTS=true
+
+if [ -f "${API_HUB_DIR}/VERSION" ] && [ "$APIHUB_SVC_EXISTS" = true ]; then
     echo -e "  ${GREEN}✓${NC} $msg_hub_detected"
 else
     APIHUB_CHOICE=$(read_input "$msg_install_apihub")
