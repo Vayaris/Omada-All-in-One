@@ -6,72 +6,96 @@
 const I18N = {
     fr: {
         // Status
-        "status.active":         "Actif",
-        "status.inactive":       "Inactif",
-        "status.failed":         "Erreur",
-        "status.activating":     "Démarrage…",
-        "status.not_installed":  "Non installé",
-        "status.unknown":        "Inconnu",
+        "status.active":           "Actif",
+        "status.inactive":         "Inactif",
+        "status.failed":           "Erreur",
+        "status.activating":       "Démarrage…",
+        "status.not_installed":    "Non installé",
+        "status.unknown":          "Inconnu",
         // Buttons
-        "btn.open":              "Ouvrir",
-        "btn.restart":           "Redémarrer",
-        "btn.update":            "Mettre à jour",
-        "btn.check":             "Vérifier les MAJ",
-        "btn.hub_update":        "Mettre à jour le Hub",
+        "btn.open":                "Ouvrir",
+        "btn.restart":             "Redémarrer",
+        "btn.update":              "Mettre à jour",
+        "btn.check":               "Vérifier les MAJ",
+        "btn.hub_update":          "Mettre à jour le Hub",
+        "btn.install":             "Installer",
+        "btn.installing":          "Installation…",
+        "btn.uninstall":           "Désinstaller",
+        "btn.uninstalling":        "Désinstallation…",
         // Update info
-        "update.checking":       "Vérification…",
-        "update.current":        "À jour",
-        "update.available":      "Mise à jour disponible",
-        "update.error":          "Impossible de vérifier",
-        "update.none":           "",
+        "update.checking":         "Vérification…",
+        "update.current":          "À jour",
+        "update.available":        "Mise à jour disponible",
+        "update.error":            "Impossible de vérifier",
+        "update.none":             "",
         // Not installed
-        "not_installed.title":   "Non installé",
-        "not_installed.desc":    "Ce composant n'est pas installé.\nRelancez install.sh pour l'ajouter.",
+        "not_installed.title":     "Non installé",
+        "not_installed.desc":      "Ce composant n'est pas encore installé sur ce serveur.",
+        // Install / uninstall
+        "install.started":         "Installation démarrée…",
+        "install.ok":              "Installé avec succès !",
+        "install.fail":            "Échec de l'installation",
+        "uninstall.confirm":       "Confirmer la désinstallation complète de ce composant ?",
+        "uninstall.ok":            "Composant désinstallé.",
+        "uninstall.fail":          "Échec de la désinstallation",
         // Hub footer
-        "hub.label":             "Hub",
-        "hub.version":           "version",
+        "hub.label":               "Hub",
+        "hub.version":             "version",
         // Toast messages
-        "toast.restarting":      "Redémarrage du service…",
-        "toast.restart_ok":      "Service redémarré avec succès.",
-        "toast.restart_fail":    "Échec du redémarrage",
-        "toast.update_start":    "Mise à jour en cours…",
-        "toast.update_ok":       "Mise à jour appliquée — redémarrage en cours.",
-        "toast.update_fail":     "Échec de la mise à jour",
-        "toast.hub_update_ok":   "Hub mis à jour — reconnexion dans quelques secondes…",
-        "toast.hub_update_fail": "Échec de la mise à jour du Hub",
+        "toast.restarting":        "Redémarrage du service…",
+        "toast.restart_ok":        "Service redémarré avec succès.",
+        "toast.restart_fail":      "Échec du redémarrage",
+        "toast.update_start":      "Mise à jour en cours…",
+        "toast.update_ok":         "Mise à jour appliquée — redémarrage en cours.",
+        "toast.update_fail":       "Échec de la mise à jour",
+        "toast.hub_update_ok":     "Hub mis à jour — reconnexion dans quelques secondes…",
+        "toast.hub_update_fail":   "Échec de la mise à jour du Hub",
         // Port / proto
-        "port.label":            "Port",
+        "port.label":              "Port",
+        // Console
+        "console.close":           "Fermer",
     },
     en: {
-        "status.active":         "Active",
-        "status.inactive":       "Inactive",
-        "status.failed":         "Error",
-        "status.activating":     "Starting…",
-        "status.not_installed":  "Not installed",
-        "status.unknown":        "Unknown",
-        "btn.open":              "Open",
-        "btn.restart":           "Restart",
-        "btn.update":            "Update",
-        "btn.check":             "Check for updates",
-        "btn.hub_update":        "Update Hub",
-        "update.checking":       "Checking…",
-        "update.current":        "Up to date",
-        "update.available":      "Update available",
-        "update.error":          "Unable to check",
-        "update.none":           "",
-        "not_installed.title":   "Not installed",
-        "not_installed.desc":    "This component is not installed.\nRe-run install.sh to add it.",
-        "hub.label":             "Hub",
-        "hub.version":           "version",
-        "toast.restarting":      "Restarting service…",
-        "toast.restart_ok":      "Service restarted successfully.",
-        "toast.restart_fail":    "Restart failed",
-        "toast.update_start":    "Updating…",
-        "toast.update_ok":       "Update applied — service is restarting.",
-        "toast.update_fail":     "Update failed",
-        "toast.hub_update_ok":   "Hub updated — reconnecting in a few seconds…",
-        "toast.hub_update_fail": "Hub update failed",
-        "port.label":            "Port",
+        "status.active":           "Active",
+        "status.inactive":         "Inactive",
+        "status.failed":           "Error",
+        "status.activating":       "Starting…",
+        "status.not_installed":    "Not installed",
+        "status.unknown":          "Unknown",
+        "btn.open":                "Open",
+        "btn.restart":             "Restart",
+        "btn.update":              "Update",
+        "btn.check":               "Check for updates",
+        "btn.hub_update":          "Update Hub",
+        "btn.install":             "Install",
+        "btn.installing":          "Installing…",
+        "btn.uninstall":           "Uninstall",
+        "btn.uninstalling":        "Uninstalling…",
+        "update.checking":         "Checking…",
+        "update.current":          "Up to date",
+        "update.available":        "Update available",
+        "update.error":            "Unable to check",
+        "update.none":             "",
+        "not_installed.title":     "Not installed",
+        "not_installed.desc":      "This component is not yet installed on this server.",
+        "install.started":         "Installation started…",
+        "install.ok":              "Installed successfully!",
+        "install.fail":            "Installation failed",
+        "uninstall.confirm":       "Confirm full uninstall of this component?",
+        "uninstall.ok":            "Component uninstalled.",
+        "uninstall.fail":          "Uninstall failed",
+        "hub.label":               "Hub",
+        "hub.version":             "version",
+        "toast.restarting":        "Restarting service…",
+        "toast.restart_ok":        "Service restarted successfully.",
+        "toast.restart_fail":      "Restart failed",
+        "toast.update_start":      "Updating…",
+        "toast.update_ok":         "Update applied — service is restarting.",
+        "toast.update_fail":       "Update failed",
+        "toast.hub_update_ok":     "Hub updated — reconnecting in a few seconds…",
+        "toast.hub_update_fail":   "Hub update failed",
+        "port.label":              "Port",
+        "console.close":           "Close",
     },
 };
 
@@ -105,6 +129,7 @@ function toggleLang() {
 let statusData    = null;   // dernière réponse /api/status
 let versionData   = null;   // dernière réponse /api/version-check
 let versionChecked = false;
+const activeInstalls = new Set(); // composants en cours d'installation
 
 // ---- Toast -------------------------------------------------
 function showToast(message, type = "info", duration = 4000) {
@@ -163,6 +188,9 @@ function renderAppCard(key, info) {
     const port       = info.port;
     const serverIp   = window.SERVER_IP || location.hostname;
     const appUrl     = `${proto}://${serverIp}:${port}`;
+
+    // Ne pas écraser la carte si une install est en cours
+    if (activeInstalls.has(key)) return;
 
     // État "non installé"
     if (!installed) {
@@ -228,8 +256,11 @@ function renderAppCard(key, info) {
           </button>
           ${updateBtn}
         </div>
-        <div class="port-info">
-          <span>${t("port.label")} ${port} · ${proto.toUpperCase()}</span>
+        <div class="card-footer-row">
+          <span class="port-info">${t("port.label")} ${port} · ${proto.toUpperCase()}</span>
+          <button class="btn btn-sm btn-danger" onclick="uninstallComponent('${key}', this)">
+            🗑 ${t("btn.uninstall")}
+          </button>
         </div>
       </div>`;
 }
@@ -237,6 +268,7 @@ function renderAppCard(key, info) {
 function buildNotInstalledCard(key) {
     const title = key === "manager" ? "Omada Manager" : "Omada API Hub";
     const icon  = key === "manager" ? "⚙" : "🌐";
+    const btnClass = key === "manager" ? "btn btn-sm btn-success" : "btn btn-sm btn-teal";
     return `
       <div class="card-header">
         <div class="card-title">
@@ -249,8 +281,15 @@ function buildNotInstalledCard(key) {
         <div class="not-installed-body">
           <div style="font-size:32px;margin-bottom:8px">📦</div>
           <strong>${t("not_installed.title")}</strong>
-          <p>${t("not_installed.desc").replace(/\n/g, "<br>")}</p>
+          <p>${t("not_installed.desc")}</p>
         </div>
+        <div class="actions-row">
+          <button class="${btnClass}" id="install-btn-${key}"
+                  onclick="installComponent('${key}', this)">
+            + ${t("btn.install")}
+          </button>
+        </div>
+        <div class="console-output" id="console-${key}" style="display:none"></div>
       </div>`;
 }
 
@@ -345,6 +384,86 @@ async function updateHub(btn) {
         showToast(`${t("toast.hub_update_fail")}: ${data.error || ""}`, "error", 8000);
         btn.innerHTML = origText;
         btn.disabled = false;
+    }
+}
+
+// ---- Install -----------------------------------------------
+async function installComponent(key, btn) {
+    const origText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = `<span class="spinning">↻</span> ${t("btn.installing")}`;
+
+    // Ouvrir la console
+    activeInstalls.add(key);
+    const consoleEl = document.getElementById(`console-${key}`);
+    if (consoleEl) {
+        consoleEl.style.display = "";
+        consoleEl.innerHTML = "";
+    }
+
+    const { ok } = await apiPost(`/api/install/${key}`);
+    if (!ok) {
+        showToast(t("install.fail"), "error");
+        btn.disabled = false;
+        btn.innerHTML = origText;
+        activeInstalls.delete(key);
+        return;
+    }
+    showToast(t("install.started"), "info");
+
+    // Polling des logs
+    let offset = 0;
+    const poll = setInterval(async () => {
+        const { ok: logOk, data } = await apiGet(`/api/install/${key}/log?offset=${offset}`);
+        if (!logOk) return;
+
+        const el = document.getElementById(`console-${key}`);
+        for (const line of data.lines) {
+            if (el) {
+                const div = document.createElement("div");
+                div.className = "console-line" +
+                    (line.startsWith("✓") ? " success" : line.startsWith("✗") ? " error" : "");
+                div.textContent = line;
+                el.appendChild(div);
+                el.scrollTop = el.scrollHeight;
+            }
+        }
+        offset = data.total;
+
+        if (!data.running) {
+            clearInterval(poll);
+            activeInstalls.delete(key);
+            if (data.success) {
+                showToast(t("install.ok"), "success", 5000);
+                await fetchStatus();
+                checkVersions();
+            } else {
+                showToast(t("install.fail"), "error", 8000);
+                // Laisser la console visible, réactiver le bouton
+                const b = document.getElementById(`install-btn-${key}`);
+                if (b) { b.disabled = false; b.innerHTML = origText; }
+            }
+        }
+    }, 800);
+}
+
+// ---- Uninstall ---------------------------------------------
+async function uninstallComponent(key, btn) {
+    if (!confirm(t("uninstall.confirm"))) return;
+
+    btn.disabled = true;
+    const origText = btn.innerHTML;
+    btn.innerHTML = `<span class="spinning">↻</span> ${t("btn.uninstalling")}`;
+
+    const { ok, data } = await apiPost(`/api/uninstall/${key}`);
+    if (ok) {
+        showToast(t("uninstall.ok"), "success");
+        await fetchStatus();
+    } else {
+        const detail = (data.logs || []).slice(-3).join(" | ");
+        showToast(`${t("uninstall.fail")}: ${detail}`, "error", 8000);
+        btn.disabled = false;
+        btn.innerHTML = origText;
     }
 }
 

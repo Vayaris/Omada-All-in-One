@@ -3,11 +3,12 @@
 
 import os
 import secrets
-from flask import Flask, render_template, jsonify, abort
+from flask import Flask, render_template, jsonify, request, abort
 
 import config
 import services
 import updater
+import installer
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = secrets.token_hex(32)
@@ -145,6 +146,45 @@ def api_update_api_hub():
 def api_update_hub():
     result = updater.update_hub()
     return jsonify(result), (200 if result["success"] else 500)
+
+
+# ============================================================
+# API : installation
+# ============================================================
+
+@app.route("/api/install/<component>", methods=["POST"])
+def api_install(component):
+    if component not in ("manager", "api_hub"):
+        abort(404)
+    started = installer.start_install(component)
+    return jsonify({"started": started})
+
+
+@app.route("/api/install/<component>/log")
+def api_install_log(component):
+    if component not in ("manager", "api_hub"):
+        abort(404)
+    offset = int(request.args.get("offset", 0))
+    job = installer.get_job(component)
+    logs = job.get("logs", [])
+    return jsonify({
+        "lines":   logs[offset:],
+        "total":   len(logs),
+        "running": job.get("running", False),
+        "success": job.get("success", None),
+    })
+
+
+# ============================================================
+# API : désinstallation
+# ============================================================
+
+@app.route("/api/uninstall/<component>", methods=["POST"])
+def api_uninstall(component):
+    if component not in ("manager", "api_hub"):
+        abort(404)
+    success, logs = installer.uninstall(component)
+    return jsonify({"success": success, "logs": logs}), (200 if success else 500)
 
 
 # ============================================================
