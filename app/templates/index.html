@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omada All-In-One Hub</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔗</text></svg>">
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-left">
+    <div class="header-logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        <line x1="2" y1="12" x2="22" y2="12"/>
+      </svg>
+    </div>
+    <h1>Omada All-In-One</h1>
+  </div>
+  <div class="header-right">
+    <button class="btn btn-icon" id="langBtn" onclick="toggleLang()" title="Changer de langue">FR</button>
+    <button class="btn btn-icon" id="themeBtn" onclick="toggleTheme()" title="Changer de thème">☀</button>
+  </div>
+</header>
+
+<!-- Main -->
+<main class="main">
+
+  <!-- Dashboard 2 colonnes -->
+  <div class="dashboard-grid">
+
+    <!-- Card : Omada Manager -->
+    <div class="app-card card-manager" id="card-manager">
+      <!-- Rendu dynamique par app.js -->
+      <div class="card-header">
+        <div class="card-title">
+          <div class="card-title-icon">⚙</div>
+          <h2>Omada Manager</h2>
+        </div>
+        <span class="version-badge version-unknown">—</span>
+      </div>
+      <div class="card-body">
+        <div class="status-row">
+          <span class="status-dot"></span>
+          <span class="status-text">Chargement…</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card : Omada API Hub -->
+    <div class="app-card card-api-hub" id="card-api_hub">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="card-title-icon">🌐</div>
+          <h2>Omada API Hub</h2>
+        </div>
+        <span class="version-badge version-unknown">—</span>
+      </div>
+      <div class="card-body">
+        <div class="status-row">
+          <span class="status-dot"></span>
+          <span class="status-text">Chargement…</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /dashboard-grid -->
+
+  <!-- Hub footer bar -->
+  <div class="hub-footer">
+    <div class="hub-footer-label">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2.5">
+        <rect x="2" y="3" width="20" height="14" rx="2"/>
+        <path d="M8 21h8M12 17v4"/>
+      </svg>
+      Hub
+    </div>
+    <div class="hub-footer-ver">
+      <span class="version-badge" id="hub-version">v—</span>
+      <span id="hub-update-info"></span>
+    </div>
+    <div class="hub-footer-actions">
+      <button class="btn btn-outline btn-sm" id="checkBtn"
+              onclick="checkVersions()">Vérifier les MAJ</button>
+      <button class="btn btn-sm btn-outline" id="hubUpdateBtn"
+              onclick="updateHub(this)">↑ Mettre à jour le Hub</button>
+    </div>
+  </div>
+
+</main>
+
+<!-- Toast container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- Server IP transmis depuis Flask -->
+<script>window.SERVER_IP = "{{ server_ip }}";</script>
+<script src="/static/app.js"></script>
+</body>
+</html>

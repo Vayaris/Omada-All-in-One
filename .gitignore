@@ -1,0 +1,17 @@
+# Dossiers des projets locaux (pas à inclure dans ce repo)
+Omada-Manager-main/
+omada-api-hub-main/
+
+# Claude Code
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env
+
+# OS
+.DS_Store
+Thumbs.db

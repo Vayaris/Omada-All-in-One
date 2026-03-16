@@ -1,0 +1,19 @@
+[Unit]
+Description=Omada All-In-One Hub
+Documentation=https://github.com/Vayaris/Omada-All-in-One
+After=network.target
+Wants=omada-web.service omada-api-hub.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/omada-hub/app
+ExecStart=/opt/omada-hub/venv/bin/python /opt/omada-hub/app/app.py
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=omada-hub
+
+[Install]
+WantedBy=multi-user.target
