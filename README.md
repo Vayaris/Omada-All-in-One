@@ -25,7 +25,7 @@
 | Component | Description | Port |
 |-----------|-------------|------|
 | **Omada Manager** | Web panel to install, manage and update the Omada SDN Controller service | 30560 (HTTPS) |
-| **Omada API Hub** | Multi-user portal to manage Omada controllers via OpenAPI | 5000 (HTTP) |
+| **Omada API Hub** | Multi-user portal to manage Omada controllers via OpenAPI | 443 (HTTPS) |
 | **All-In-One Hub** | This dashboard | 8080 (HTTP) |
 
 Each component is a fully independent project — they can be updated separately, and the All-In-One Hub is just an orchestration layer on top.
@@ -171,7 +171,7 @@ journalctl -u omada-hub -n 50    # View last 50 lines
 |------|---------|
 | 8080 | All-In-One Hub (HTTP) |
 | 30560 | Omada Manager (HTTPS) |
-| 5000 | Omada API Hub (HTTP) |
+| 443 | Omada API Hub (HTTPS) |
 
 ---
 
@@ -225,7 +225,7 @@ sudo rm -rf /opt/omada-hub
 | Composant | Description | Port |
 |-----------|-------------|------|
 | **Omada Manager** | Panneau web pour installer, gérer et mettre à jour le service Omada SDN Controller | 30560 (HTTPS) |
-| **Omada API Hub** | Portail multi-utilisateurs pour gérer les contrôleurs Omada via OpenAPI | 5000 (HTTP) |
+| **Omada API Hub** | Portail multi-utilisateurs pour gérer les contrôleurs Omada via OpenAPI | 443 (HTTPS) |
 | **Hub All-In-One** | Ce tableau de bord | 8080 (HTTP) |
 
 Chaque composant est un projet entièrement indépendant — ils peuvent être mis à jour séparément, et le Hub All-In-One est simplement une couche d'orchestration au-dessus.
@@ -371,7 +371,7 @@ journalctl -u omada-hub -n 50      # Voir les 50 dernières lignes
 |------|-------------|
 | 8080 | Hub All-In-One (HTTP) |
 | 30560 | Omada Manager (HTTPS) |
-| 5000 | Omada API Hub (HTTP) |
+| 443 | Omada API Hub (HTTPS) |
 
 ---
 

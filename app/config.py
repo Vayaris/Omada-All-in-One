@@ -30,7 +30,7 @@ API_HUB_INSTALL_DIR  = "/opt/omada-api-hub"
 API_HUB_VERSION_FILE = "/opt/omada-api-hub/VERSION"
 API_HUB_SERVICE_NAME = "omada-api-hub"
 API_HUB_GITHUB_REPO  = "YakuMawi/omada-api-hub"
-API_HUB_PORT         = 5000
+API_HUB_PORT         = 443
 
 # ---- GitHub API ------------------------------------------------
 GITHUB_API_BASE = "https://api.github.com/repos"
