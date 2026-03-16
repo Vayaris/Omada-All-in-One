@@ -198,11 +198,11 @@ function renderAppCard(key, info) {
         // vd.remote === null → no release info available (e.g. private repo) → show nothing
     }
 
-    // Couleur accent selon l'app
-    const accentColor = key === "manager" ? "var(--accent)" : "var(--teal)";
-    const updateBtnClass = (versionData && versionData[key] && versionData[key].update_available)
-        ? (key === "manager" ? "btn btn-sm btn-success" : "btn btn-sm btn-teal")
-        : "btn btn-sm btn-outline";
+    const updateAvailable = versionData && versionData[key] && versionData[key].update_available;
+    const updateBtnClass  = key === "manager" ? "btn btn-sm btn-success" : "btn btn-sm btn-teal";
+    const updateBtn       = updateAvailable
+        ? `<button class="${updateBtnClass}" id="upd-${key}" onclick="updateComponent('${key}', this)">↑ ${t("btn.update")}</button>`
+        : "";
 
     card.innerHTML = `
       <div class="card-header">
@@ -226,9 +226,7 @@ function renderAppCard(key, info) {
           <button class="btn btn-outline btn-sm" onclick="restartService('${key}', this)">
             ↺ ${t("btn.restart")}
           </button>
-          <button class="${updateBtnClass}" id="upd-${key}" onclick="updateComponent('${key}', this)">
-            ↑ ${t("btn.update")}
-          </button>
+          ${updateBtn}
         </div>
         <div class="port-info">
           <span>${t("port.label")} ${port} · ${proto.toUpperCase()}</span>
@@ -261,17 +259,29 @@ function renderHubFooter(hub) {
     document.getElementById("hub-version").textContent = `v${ver}`;
 
     let updateHtml = "";
+    let hubUpdateAvailable = false;
+
     if (versionData && versionData.hub) {
         const vd = versionData.hub;
         if (vd.error) {
             updateHtml = `<span class="hub-update-info update-error">⚠ ${t("update.error")}</span>`;
         } else if (vd.update_available) {
             updateHtml = `<span class="hub-update-info update-available">↑ ${t("update.available")} v${vd.remote}</span>`;
+            hubUpdateAvailable = true;
         } else if (vd.remote !== null) {
             updateHtml = `<span class="hub-update-info update-current">✓ ${t("update.current")}</span>`;
         }
     }
     document.getElementById("hub-update-info").innerHTML = updateHtml;
+
+    // Bouton "Update Hub" visible seulement si une MAJ est disponible
+    const hubUpdateBtn = document.getElementById("hubUpdateBtn");
+    if (hubUpdateBtn) {
+        hubUpdateBtn.style.display = hubUpdateAvailable ? "" : "none";
+        if (hubUpdateAvailable) {
+            hubUpdateBtn.className = "btn btn-sm btn-success";
+        }
+    }
 }
 
 // ---- Version check -----------------------------------------
@@ -344,8 +354,9 @@ function refreshUI() {
     if (statusData) renderHubFooter(statusData.hub || {});
 
     // Boutons statiques
-    document.getElementById("checkBtn").textContent    = t("btn.check");
-    document.getElementById("hubUpdateBtn").textContent = `↑ ${t("btn.hub_update")}`;
+    document.getElementById("checkBtn").textContent = t("btn.check");
+    const hubUpdateBtn = document.getElementById("hubUpdateBtn");
+    if (hubUpdateBtn) hubUpdateBtn.textContent = `↑ ${t("btn.hub_update")}`;
 }
 
 // ---- Init --------------------------------------------------
